@@ -1,0 +1,132 @@
+:root {
+    /* Light theme variables */
+    --bg-color: #ffffff;
+    --text-color: #000;
+    --header-bg: #fdfeff;
+    --sidebar-bg: #e9ecef;
+    --card-bg: #d2e3f2;
+    --border-color: #dee2e6;
+    --accent-color: #4f9df0;
+}
+
+.dark-theme {
+    /* Dark theme variables */
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --header-bg: #1e1e1e;
+    --sidebar-bg: #2d2d2d;
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
+    --accent-color: #bb86fc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+
+.header {
+  grid-area: header;
+  background: var(--header-bg);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.theme-toggle {
+  background: var(--card-bg);
+  color: var(--text-color);  
+  border: 1px solid var(--accent-color);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+
+.theme-toggle:hover {
+    background-color: #0056b3;
+}
+
+.dark-theme .theme-toggle:hover {
+    background-color: #9d4edd;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: var(--sidebar-bg);
+  padding: 1rem;
+  border-radius: 12px;
+}
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: var(--accent-color);
+}
+
+.main-content {
+    grid-area: main;
+    padding: 1rem;
+    display: grid;
+    grid-template-areas:
+        "stats"
+        "chart";
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+}
+
+.stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    background-color: var(--card-bg);
+    padding: 3rem;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    text-align: center;
+}
+
+
+.footer {
+    grid-area: footer;
+    background-color: var(--header-bg);
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
